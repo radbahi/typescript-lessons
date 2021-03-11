@@ -7,3 +7,7 @@ Types are used by the Typescript compiler to analyze our code for errors. Types 
 floating around our codebase.
 
 You pretty much use types everywhere. Every value you define will have a type associated with it.
+
+Type annotations - Code we add to tell TS what type of value a variable will refer to.
+
+Type inference - TS tries to figure out what type of value a variable refers to.

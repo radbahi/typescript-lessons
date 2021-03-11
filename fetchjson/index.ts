@@ -12,7 +12,7 @@ interface Todo {
 // remember that typescript code is not read by browsers. we have to compile this into javascript code. 
 axios.get('https://jsonplaceholder.typicode.com/todos/1').then(response => {
     const todo = response.data as Todo // as Todo is part of typescript. notice that if the properties below are spelled wrong, theyre lit up
-    const id = todo.id
+    const id = todo.
     const title = todo.title
     const completed = todo.completed
 
