@@ -34,3 +34,36 @@ const logNumber: (i: number) => void = (i: number) => {
 
 //TECHNICALLY we don't need to add any of these annotations. go ahead and delete any of them and then hover over the variable
 //a tooltip should pop up with the annotation still there. this is what TS inference does.
+
+const color = 'red'
+//if declaration and initialization are on the same line, ts will try to figure out the type of color for us
+//at least, that's what it shows in the video. doesnt show that for me here.
+
+
+
+// WHEN TO USE ANNOTATIONS
+//when a function that returns the any type. any means ts has no idea what tpye it'll be
+const json = '{"x":10, "y":20}'
+const coordinates: {x: number, y: number} = JSON.parse(json) //by annotating coordinates, we get rid of its any type. now ts can do its job.
+console.log(coordinates) // {x:10, y:20}
+
+//when we declare a variable on one line and initialize it elsewhere
+let words = ['red', 'green','blue']
+let foundWord: boolean //without this boolean annotation, foundWord will be type any
+
+for (let i=0; i<words.length; i++) {
+    if (words[i] === 'green') {
+        foundWord = true //initialized here but declared before
+    }
+}
+
+//variable whose type cannot be inferred correctly
+let numbers = [-10, -1, 12]
+let numberAboveZero: boolean | number = false //if number is above zero, assign it to this variable. otherwise, assign false. this will be 2 different types
+// this annotation defines it as being either boolean OR number. without this, there will be an error
+
+for (let i=0; i<numbers.length; i++) {
+    if (numbers[i] > 0) {
+        numberAboveZero = numbers[i]
+    }
+}
